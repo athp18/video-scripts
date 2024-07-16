@@ -3,6 +3,12 @@ import cv2
 import ffmpeg
 import numpy as np
 
+"""
+Simple Python script to normalize infrared videos from MoSeq for key point analysis with DeepLabCut, SLEAP, etc.
+You can adjust brightness, contrast, etc. as needed
+FFmpeg will process videos at roughly 4x the speed
+"""
+
 # Function to adjust brightness and contrast
 def adjust_brightness_contrast(frame, brightness=0, contrast=0):
     alpha = (contrast + 100) / 100.0
