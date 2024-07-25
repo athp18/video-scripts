@@ -1,6 +1,10 @@
 import numpy as np
 import cv2
 
+"""
+Simple OpenCV-based python script to normalize depth videos for visualization
+"""
+
 def normalize_depth_frame(depth_frame, min_depth=None, max_depth=None):
     """
     Normalize a depth frame for visualization.
