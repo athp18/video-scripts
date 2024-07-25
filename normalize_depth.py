@@ -29,18 +29,6 @@ def normalize_depth_frame(depth_frame, min_depth=None, max_depth=None):
     
     return normalized_frame
 
-def visualize_depth_frame(depth_frame):
-    """
-    Apply a color map to the normalized depth frame for better visualization.
-    
-    Args:
-    depth_frame (numpy.ndarray): Normalized depth frame (0-255 uint8)
-    
-    Returns:
-    numpy.ndarray: Color-mapped depth frame
-    """
-    return cv2.applyColorMap(depth_frame, cv2.COLORMAP_JET)
-
 def process_depth_video(input_path, output_path, min_depth=None, max_depth=None, display=True):
     """
     Process a depth video, normalizing and visualizing each frame.
