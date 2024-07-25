@@ -43,9 +43,7 @@ def process_depth_video(input_path, output_path, min_depth=None, max_depth=None,
     cap = cv2.VideoCapture(input_path)
     
     # Get video properties
-    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = int(cap.get(cv2.CAP_PROP_FPS))
+    width, height, fps = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)), int(cap.get(cv2.CAP_PROP_FPS))
     
     # Create VideoWriter object
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
