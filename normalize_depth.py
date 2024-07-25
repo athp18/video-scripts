@@ -45,7 +45,7 @@ def process_depth_video(input_path, output_path, min_depth=None, max_depth=None,
     # Get video properties
     width, height, fps = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)), int(cap.get(cv2.CAP_PROP_FPS))
     
-    # Create VideoWriter object
+    # write to file
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(output_path, fourcc, fps, (width, height), isColor=True)
     
@@ -70,3 +70,8 @@ def process_depth_video(input_path, output_path, min_depth=None, max_depth=None,
     cap.release()
     out.release()
     cv2.destroyAllWindows()
+
+# Example usage (uncomment)
+# input_vid = "example.mp4"
+# output_vid = "depth_normalized_example.mp4"
+# process_depth_video(input_path=input_vid, output_path=output_vid, min_depth=None, max_depth=None, display=True)
