@@ -254,7 +254,7 @@ class VideoProcessingGUI:
         Thread(target=self.process_folder).start()
 
     def process_folder(self):
-         """
+        """
         Process all video files in the selected input folder.
 
         This method iterates through all .avi and .mp4 files in the input folder,
