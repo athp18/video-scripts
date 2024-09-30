@@ -2,7 +2,7 @@ import os
 import av
 import numpy as np
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 from threading import Thread
 from PIL import Image, ImageTk
 from skimage import exposure, color, img_as_ubyte
@@ -249,7 +249,7 @@ class VideoProcessingGUI:
         This method checks if input and output folders are selected before starting the process.
         """
         if not self.input_folder or not self.output_folder:
-            print("Please select input and output folders")
+            messagebox.showerror("Error", "Please select input and output folders")
             return
         Thread(target=self.process_folder).start()
 
@@ -264,9 +264,9 @@ class VideoProcessingGUI:
         video_files = [f for f in files if f.lower().endswith(('.avi', '.mp4'))]
         for file in video_files:
             file_path = os.path.join(self.input_folder, file)
-            print(f"Processing {file_path}")
+            messagebox.showinfo("Processing", f"Processing {file_path}")
             self.processor.process(file_path, self.output_folder, update_callback=self.display_frame)
-        print("Processing complete")
+        messagebox.showinfo("Complete", "Processing complete")
 
     def display_frame(self, frame):
         """
